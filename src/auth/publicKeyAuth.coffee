@@ -7,7 +7,7 @@ ssh2     = require 'ssh2'
 ssh2_streams = require 'ssh2-streams';
 buffersEqual = require 'buffer-equal-constant-time'
 
-authorizedKeysFile = env.assert 'AUTHORIZED_KEYS'
+authorizedKeysFile = env.assert ctx.username '/AUTHORIZED_KEYS'
 
 module.exports = (ctx) ->
   if ctx.method is 'publickey'
